@@ -9,8 +9,8 @@ module.exports = React.createClass({
         return (
             <section>
                 <NavigationComponent/>
-                <JobTipsComponent/>
                 <JobFormComponent/>
+                <JobTipsComponent/>
             </section>
         );
     }

@@ -32546,8 +32546,8 @@ module.exports = React.createClass({
             'section',
             null,
             React.createElement(NavigationComponent, null),
-            React.createElement(JobTipsComponent, null),
-            React.createElement(JobFormComponent, null)
+            React.createElement(JobFormComponent, null),
+            React.createElement(JobTipsComponent, null)
         );
     }
 });
@@ -32565,51 +32565,47 @@ module.exports = React.createClass({
             "div",
             { className: "jobform-border-background" },
             React.createElement(
+                "h2",
+                null,
+                "Post your job"
+            ),
+            React.createElement(
+                "label",
+                { "for": "title" },
+                "Title"
+            ),
+            React.createElement("input", { type: "text", id: "title" }),
+            React.createElement(
+                "label",
+                { "for": "company-name" },
+                "Company Name"
+            ),
+            React.createElement("input", { type: "text", id: "company-name" }),
+            React.createElement(
+                "label",
+                { "for": "location" },
+                "Location"
+            ),
+            React.createElement("input", { type: "text", id: "location" }),
+            React.createElement(
+                "label",
+                { "for": "description" },
+                "Description"
+            ),
+            React.createElement("textarea", { name: "textarea", id: "description" }),
+            React.createElement(
+                "label",
+                { "for": "title" },
+                "Tags"
+            ),
+            React.createElement("input", { type: "text", id: "title" }),
+            React.createElement(
                 "div",
-                { className: "jobform-content" },
+                { className: "button-container" },
                 React.createElement(
-                    "h2",
-                    null,
-                    "Post your job"
-                ),
-                React.createElement(
-                    "label",
-                    { "for": "title" },
-                    "Title"
-                ),
-                React.createElement("input", { type: "text", id: "title" }),
-                React.createElement(
-                    "label",
-                    { "for": "company-name" },
-                    "Company Name"
-                ),
-                React.createElement("input", { type: "text", id: "company-name" }),
-                React.createElement(
-                    "label",
-                    { "for": "location" },
-                    "Location"
-                ),
-                React.createElement("input", { type: "text", id: "location" }),
-                React.createElement(
-                    "label",
-                    { "for": "description" },
-                    "Description"
-                ),
-                React.createElement("textarea", { name: "textarea", id: "description" }),
-                React.createElement(
-                    "label",
-                    { "for": "title" },
-                    "Tags"
-                ),
-                React.createElement("input", { type: "text", id: "title" }),
-                React.createElement(
-                    "div",
-                    { className: "button-container" },
-                    React.createElement(
-                        "button",
-                        { className: "submit-button" },
-                        "Submit Job"
-                    )
+                    "button",
+                    { className: "submit-button" },
+                    "Submit Job"
                 )
             )
         );
@@ -32629,64 +32625,60 @@ module.exports = React.createClass({
             "div",
             { className: "jobtips-border-background" },
             React.createElement(
-                "div",
-                { className: "jobtips-content" },
+                "h3",
+                { className: "job-list-title" },
+                "Tips for Job Posting"
+            ),
+            React.createElement("hr", null),
+            React.createElement(
+                "p",
+                null,
                 React.createElement(
-                    "h2",
+                    "strong",
                     null,
-                    "Tips for Job Posting"
+                    "Add Keywords."
                 ),
-                React.createElement("hr", null),
+                " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Ratamacue inverted roll note rhythm phrase."
+            ),
+            React.createElement(
+                "p",
+                null,
                 React.createElement(
-                    "p",
+                    "strong",
                     null,
-                    React.createElement(
-                        "strong",
-                        null,
-                        "Add Keywords"
-                    ),
-                    " lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Ratamacue inverted roll note rhythm phrase."
+                    "Use Familiar Job Titles."
                 ),
+                " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Inverted cheese flamacue multiple bounce roll."
+            ),
+            React.createElement(
+                "p",
+                null,
                 React.createElement(
-                    "p",
+                    "strong",
                     null,
-                    React.createElement(
-                        "strong",
-                        null,
-                        "Use Familiar Job Titles."
-                    ),
-                    " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Inverted cheese flamacue multiple bounce roll."
+                    "Give Them Details."
                 ),
+                " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Dragadiddle flam accent grid cheese inverts."
+            ),
+            React.createElement(
+                "p",
+                null,
                 React.createElement(
-                    "p",
+                    "strong",
                     null,
-                    React.createElement(
-                        "strong",
-                        null,
-                        "Give Them Details."
-                    ),
-                    " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Dragadiddle flam accent grid cheese inverts."
+                    "Expand Your Location."
                 ),
+                " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Swiss-army triplet timing flam drags."
+            ),
+            React.createElement(
+                "p",
+                null,
                 React.createElement(
-                    "p",
+                    "strong",
                     null,
-                    React.createElement(
-                        "strong",
-                        null,
-                        "Expand Your Location."
-                    ),
-                    " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Swiss-army triplet timing flam drags."
+                    "Discuss Compensation."
                 ),
-                React.createElement(
-                    "p",
-                    null,
-                    React.createElement(
-                        "strong",
-                        null,
-                        "Discuss Compensation."
-                    ),
-                    " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Flammed-fives tachuda swiss sticking inverted diddles."
-                )
+                " Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Flammed-fives tachuda swiss sticking inverted diddles."
             )
         );
     }
@@ -32704,6 +32696,15 @@ module.exports = React.createClass({
         return React.createElement(
             "nav",
             { className: "navigation-container" },
+            React.createElement(
+                "div",
+                { className: "logo" },
+                React.createElement(
+                    "a",
+                    { href: "#", className: "home-link" },
+                    "Fresh Jobs"
+                )
+            ),
             React.createElement(
                 "a",
                 { href: "#" },
