@@ -115,6 +115,69 @@ textarea {
     background-color: #3A9C4B;
 }
 
+.job-row-container {
+
+    background-color: #fff;
+    margin: 1em;
+    padding: 1em;
+
+    .job-row-top {
+
+        padding: 1em;
+
+        .job-row-title {
+            color: #0A351F;
+            text-decoration: none;
+            font-size: 1.25em;
+            float: left;
+        }
+
+        .job-row-time-stamp {
+            color: #949494;
+            font-size: 0.8em;
+            float: right;
+        }
+    }
+
+    .job-row-bottom {
+
+        padding: 1em;
+
+        .job-row-company {
+            text-transform: uppercase;
+            font-size: 0.8em;
+            font-weight: bold;
+            float: left;
+        }
+
+        .job-row-location {
+            font-size: 0.8em;
+        }
+    }
+
+    .job-row-text {
+        color: #949494;
+        font-size: 0.8em;
+        padding: 1em;
+        padding-top: 0;
+    }
+
+    .job-row-keywords-container {
+
+        padding: 1em;
+        border-bottom: 1px solid #949494;
+
+        .job-row-keywords {
+            padding: 0.25em;
+            background-color: #F8FCEA;
+            border: 2px solid #DCE186;
+            margin-right: 0.5em;
+            text-decoration: none;
+            color: #000;
+        }
+    }
+}
+
 @media screen and (min-width: 55em) {
 
     .link-container {

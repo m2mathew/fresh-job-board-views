@@ -30,7 +30,7 @@ var mainElement = document.getElementById('main-content');
 
 React.render(
     <div>
-        <AddJobPageComponent/>
+        <AddJobPageComponent />
     </div>,
     mainElement
 );
