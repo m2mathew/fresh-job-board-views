@@ -454,7 +454,6 @@ textarea {
     padding: 1em; }
     .job-row-container .job-row-top .job-row-title {
       color: #0A351F;
-      text-decoration: none;
       font-size: 1.25em;
       float: left; }
     .job-row-container .job-row-top .job-row-time-stamp {
@@ -482,9 +481,39 @@ textarea {
       padding: 0.25em;
       background-color: #F8FCEA;
       border: 2px solid #DCE186;
-      margin-right: 0.5em;
-      text-decoration: none;
-      color: #000; }
+      margin-right: 0.5em; }
+
+.company-box-container {
+  background-color: #fff;
+  margin: 1em;
+  padding: 2em; }
+  .company-box-container .company-box-title {
+    font-size: 1.5em;
+    margin: 1em;
+    border-bottom: 2px solid #8A8A8A; }
+  .company-box-container .feature-pic-container {
+    text-align: center;
+    margin: 0 1em; }
+    .company-box-container .feature-pic-container .feature-pic {
+      width: 100%; }
+  .company-box-container .logo-pic-container {
+    text-align: center; }
+    .company-box-container .logo-pic-container .logo-pic {
+      margin-top: -2.6em;
+      width: 40%; }
+  .company-box-container .company-box-info-container {
+    text-align: center;
+    margin-bottom: 2em; }
+    .company-box-container .company-box-info-container .company-box-name {
+      font-size: 2em; }
+      .company-box-container .company-box-info-container .company-box-name a {
+        color: #3B9B4C; }
+    .company-box-container .company-box-info-container .company-box-location {
+      font-size: 1em; }
+
+a {
+  text-decoration: none;
+  color: #000; }
 
 @media screen and (min-width: 55em) {
   .link-container {

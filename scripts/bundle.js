@@ -35812,22 +35812,36 @@ module.exports = React.createClass({
             { className: 'company-box-container' },
             React.createElement(
                 'div',
-                { className: 'company-picture' },
-                React.createElement(
-                    'div',
-                    null,
-                    'Company Information'
-                )
+                { className: 'company-box-title' },
+                'Company Information'
             ),
             React.createElement(
                 'div',
-                null,
+                { className: 'feature-pic-container' },
                 React.createElement('img', { className: 'feature-pic', src: this.props.model.get('companyPicture') })
             ),
             React.createElement(
                 'div',
-                null,
+                { className: 'logo-pic-container' },
                 React.createElement('img', { className: 'logo-pic', src: this.props.model.get('companyLogo') })
+            ),
+            React.createElement(
+                'div',
+                { className: 'company-box-info-container' },
+                React.createElement(
+                    'div',
+                    { className: 'company-box-name' },
+                    React.createElement(
+                        'a',
+                        { href: '#' },
+                        this.props.model.get('companyName')
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'company-box-location' },
+                    this.props.model.get('companyLocation')
+                )
             )
         );
     }
