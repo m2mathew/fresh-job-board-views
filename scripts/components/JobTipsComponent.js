@@ -3,7 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
     render: function() {
         return (
-            <div className="jobtips-border-background">
+            <div className="jobtips-background">
                 <h3 className="job-list-title">Tips for Job Posting</h3>
                 <hr/>
                 <p><strong>Add Keywords.</strong> Lorem ipsum drummer paradiddle stick drumhead cymbal-bag stick holder pedal. Rudiment sticking flam grace-note flammy flam paraddidle-diddle practice. Metronome beeping practice pad journal sticktape gum rubber. Ratamacue inverted roll note rhythm phrase.</p>

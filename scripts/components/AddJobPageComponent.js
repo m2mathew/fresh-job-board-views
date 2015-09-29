@@ -9,8 +9,10 @@ module.exports = React.createClass({
         return (
             <section>
                 <NavigationComponent/>
-                <JobFormComponent/>
-                <JobTipsComponent/>
+                <div className="responsive-box">
+                    <JobFormComponent/>
+                    <JobTipsComponent/>
+                </div>
             </section>
         );
     }

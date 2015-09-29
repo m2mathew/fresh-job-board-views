@@ -393,17 +393,19 @@ nav {
     font-size: 1.5em;
     text-transform: none; }
 
-.jobform-border-background {
+.jobform-background {
+  text-align: left;
   margin: 1em;
   background-color: #fff;
   padding: 1em;
   box-shadow: 10px 10px 12px #ddd; }
 
-.jobtips-border-background {
+.jobtips-background {
+  text-align: left;
   margin: 1em;
   background-color: #fff;
   padding: 1em; }
-  .jobtips-border-background h3 {
+  .jobtips-background h3 {
     font-weight: 400;
     margin-bottom: 0; }
 
@@ -447,10 +449,31 @@ textarea {
 @media screen and (min-width: 55em) {
   .link-container {
     display: inline-block; }
-  .jobform-border-background {
+  .responsive-box {
+    text-align: center;
+    padding: 1em; }
+  .jobform-background {
+    margin: 0 auto;
+    padding: 1.25em;
+    padding-right: 1.75em;
     width: 45%;
     float: left; }
-  .jobtips-border-background {
+  .jobtips-background {
+    margin: 0 auto;
     display: inline-block;
-    max-width: 30%;
-    float: right; } }
+    width: 30%; } }
+
+@media screen and (min-width: 65em) {
+  .responsive-box {
+    text-align: center; }
+  .jobform-background {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 1.25em;
+    padding-right: 1.75em;
+    width: 25em; }
+  .jobtips-background {
+    display: inline-block;
+    margin: 0 auto;
+    display: inline-block;
+    width: 15em; } }

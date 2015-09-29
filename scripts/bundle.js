@@ -32546,8 +32546,12 @@ module.exports = React.createClass({
             'section',
             null,
             React.createElement(NavigationComponent, null),
-            React.createElement(JobFormComponent, null),
-            React.createElement(JobTipsComponent, null)
+            React.createElement(
+                'div',
+                { className: 'responsive-box' },
+                React.createElement(JobFormComponent, null),
+                React.createElement(JobTipsComponent, null)
+            )
         );
     }
 });
@@ -32563,7 +32567,7 @@ module.exports = React.createClass({
     render: function render() {
         return React.createElement(
             "div",
-            { className: "jobform-border-background" },
+            { className: "jobform-background" },
             React.createElement(
                 "h2",
                 null,
@@ -32623,7 +32627,7 @@ module.exports = React.createClass({
     render: function render() {
         return React.createElement(
             "div",
-            { className: "jobtips-border-background" },
+            { className: "jobtips-background" },
             React.createElement(
                 "h3",
                 { className: "job-list-title" },

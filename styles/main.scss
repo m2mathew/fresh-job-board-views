@@ -51,14 +51,16 @@ nav {
     }
 }
 
-.jobform-border-background {
+.jobform-background {
+    text-align: left;
     margin: 1em;
     background-color: #fff;
     padding: 1em;
     box-shadow: 10px 10px 12px #ddd;
 }
 
-.jobtips-border-background {
+.jobtips-background {
+    text-align: left;
     margin: 1em;
     background-color: #fff;
     padding: 1em;
@@ -119,19 +121,48 @@ textarea {
         display: inline-block;
     }
 
-    .jobform-border-background {
-        // max-width: 15em;
-        // margin: 1em 0 1em 4em;
+    .responsive-box {
+        text-align: center;
+        padding: 1em;
+    }
+
+    .jobform-background {
+        margin: 0 auto;
+        padding: 1.25em;
+        padding-right: 1.75em;
         width: 45%;
         float: left;
     }
 
-    .jobtips-border-background {
-        // max-width: 8em;
+    .jobtips-background {
+        margin: 0 auto;
         display: inline-block;
-        // margin: 1.5em 4em 3em 0;
-        max-width: 30%;
-        float: right;
+        width: 30%;
+    }
+
+}
+
+@media screen and (min-width: 65em) {
+
+    .responsive-box {
+        text-align: center;
+        // padding: 1em;
+    }
+
+    .jobform-background {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 1.25em;
+        padding-right: 1.75em;
+        width: 25em;
+
+    }
+
+    .jobtips-background {
+        display: inline-block;
+        margin: 0 auto;
+        display: inline-block;
+        width: 15em;
     }
 
 }

@@ -3,7 +3,7 @@ var React = require('react');
 module.exports = React.createClass({
     render: function() {
         return (
-            <div className="jobform-border-background">
+            <div className="jobform-background">
                 <h2>Post your job</h2>
                 <label for="title">Title</label>
                 <input type="text" id="title" />
