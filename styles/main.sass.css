@@ -364,13 +364,20 @@ body {
 
 nav {
   border-top: 16px solid #525252;
-  background-color: #fff; }
+  background-color: #fff;
+  padding-left: 1.5em;
+  padding-right: 1.5em; }
   nav .logo {
     background: url("/images/logo.png") no-repeat;
     background-position: 20% 50%;
     background-size: 3em;
     display: inline-block;
     padding: 2em; }
+  nav .link-container {
+    text-align: center; }
+    nav .link-container .nav-anchor {
+      display: inline-block;
+      margin-bottom: 1em; }
   nav a {
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
@@ -383,22 +390,18 @@ nav {
     margin-left: 3em;
     font-weight: 600;
     color: #08371B;
-    font-size: 1.25em;
+    font-size: 1.5em;
     text-transform: none; }
 
 .jobform-border-background {
-  width: 45%;
-  margin: 1em 0 1em 4em;
-  float: left;
+  margin: 1em;
   background-color: #fff;
   padding: 1em;
   box-shadow: 10px 10px 12px #ddd; }
 
 .jobtips-border-background {
-  width: 30%;
-  float: right;
+  margin: 1em;
   background-color: #fff;
-  margin: 1.5em 4em 3em 0;
   padding: 1em; }
   .jobtips-border-background h3 {
     font-weight: 400;
@@ -423,20 +426,31 @@ textarea {
   width: 100%;
   margin-bottom: 1em; }
 
-button {
-  font-family: "Helvetica", sans-serif;
-  display: block;
-  padding: 10px;
-  font-size: 1.25em;
-  border-radius: 5px;
-  border: none;
-  float: right; }
-
 .button-container {
   text-align: right;
   padding-top: 0.5em;
-  padding-bottom: 1em; }
+  padding-bottom: 1em;
+  margin-bottom: 1em; }
+  .button-container button {
+    font-family: "Helvetica", sans-serif;
+    display: block;
+    padding: 10px;
+    font-size: 1.25em;
+    border-radius: 5px;
+    border: none;
+    float: right; }
 
 .submit-button {
   color: #ECF3BE;
   background-color: #3A9C4B; }
+
+@media screen and (min-width: 55em) {
+  .link-container {
+    display: inline-block; }
+  .jobform-border-background {
+    width: 45%;
+    float: left; }
+  .jobtips-border-background {
+    display: inline-block;
+    max-width: 30%;
+    float: right; } }

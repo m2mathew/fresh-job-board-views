@@ -32706,29 +32706,53 @@ module.exports = React.createClass({
                 )
             ),
             React.createElement(
-                "a",
-                { href: "#" },
-                "Jobs"
-            ),
-            React.createElement(
-                "a",
-                { href: "#" },
-                "Companies"
-            ),
-            React.createElement(
-                "a",
-                { href: "#" },
-                "Cities"
-            ),
-            React.createElement(
-                "a",
-                { href: "#" },
-                "Why Fresh?"
-            ),
-            React.createElement(
-                "a",
-                { href: "#" },
-                "For Employers"
+                "div",
+                { className: "link-container" },
+                React.createElement(
+                    "div",
+                    { className: "nav-anchor" },
+                    React.createElement(
+                        "a",
+                        { href: "#" },
+                        "Jobs"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "nav-anchor" },
+                    React.createElement(
+                        "a",
+                        { href: "#" },
+                        "Companies"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "nav-anchor" },
+                    React.createElement(
+                        "a",
+                        { href: "#" },
+                        "Cities"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "nav-anchor" },
+                    React.createElement(
+                        "a",
+                        { href: "#" },
+                        "Why Fresh?"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "nav-anchor" },
+                    React.createElement(
+                        "a",
+                        { href: "#" },
+                        "For Employers"
+                    )
+                )
             )
         );
     }
@@ -32739,7 +32763,7 @@ module.exports = React.createClass({
 
 var React = require('react');
 var Backbone = require('backbone');
-var AppComponent = require('./components/AppComponent.js');
+var AddJobPageComponent = require('./components/AddJobPageComponent.js');
 
 var mainElement = document.getElementById('main-content');
 
@@ -32768,10 +32792,10 @@ var mainElement = document.getElementById('main-content');
 React.render(React.createElement(
     'div',
     null,
-    React.createElement(AppComponent, null)
+    React.createElement(AddJobPageComponent, null)
 ), mainElement);
 
-},{"./components/AppComponent.js":160,"backbone":1,"react":159}]},{},[164])
+},{"./components/AddJobPageComponent.js":160,"backbone":1,"react":159}]},{},[164])
 
 
 //# sourceMappingURL=bundle.js.map
