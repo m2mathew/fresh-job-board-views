@@ -178,6 +178,26 @@ textarea {
     }
 }
 
+.company-box-container {
+
+    background-color: #fff;
+    margin: 1em;
+    padding: 1em;
+
+    .company-picture {
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .feature-pic {
+
+    }
+
+    .logo-pic {
+
+    }
+}
+
 @media screen and (min-width: 55em) {
 
     .link-container {

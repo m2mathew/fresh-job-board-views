@@ -35735,8 +35735,10 @@ var NavigationComponent = require('./NavigationComponent.js');
 var JobFormComponent = require('./JobFormComponent.js');
 var JobTipsComponent = require('./JobTipsComponent.js');
 var JobRowComponent = require('./JobRowComponent.js');
+var CompanyBoxComponent = require('./CompanyBoxComponent.js');
 
 var JobDetailsModel = require('../models/JobDetailsModel.js');
+var CompanyModel = require('../models/CompanyModel.js');
 
 var currentDate = moment();
 
@@ -35753,13 +35755,20 @@ module.exports = React.createClass({
         keywords: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React']
     }),
     jobDetailsModel2: new JobDetailsModel({
-        id: 1,
+        id: 2,
         jobTitle: 'Remote Engineer Hipster',
         companyName: 'Vintage Glass House',
         dateCreated: currentDate,
         shortDescription: 'Looking for a node.js champion who loves long bike rides and Warby Parker glasses...',
         jobLocation: 'Austin, TX',
         keywords: ['HTML/CSS', 'node.js', 'JavaScript', 'jQuery', 'Backbone']
+    }),
+    companyModel1: new CompanyModel({
+        id: 1,
+        companyName: 'MaxPlay',
+        companyLocation: 'Austin, TX',
+        companyPicture: '../../images/featured.jpg',
+        companyLogo: '../../images/featured-logo.jpg'
     }),
     render: function render() {
         return React.createElement(
@@ -35777,12 +35786,54 @@ module.exports = React.createClass({
                 null,
                 React.createElement(JobRowComponent, { model: this.jobDetailsModel1 }),
                 React.createElement(JobRowComponent, { model: this.jobDetailsModel2 })
+            ),
+            React.createElement(
+                'div',
+                null,
+                React.createElement(CompanyBoxComponent, { model: this.companyModel1 })
             )
         );
     }
 });
 
-},{"../models/JobDetailsModel.js":167,"./JobFormComponent.js":162,"./JobRowComponent.js":163,"./JobTipsComponent.js":164,"./NavigationComponent.js":165,"moment":5,"react":160}],162:[function(require,module,exports){
+},{"../models/CompanyModel.js":168,"../models/JobDetailsModel.js":169,"./CompanyBoxComponent.js":162,"./JobFormComponent.js":163,"./JobRowComponent.js":164,"./JobTipsComponent.js":165,"./NavigationComponent.js":166,"moment":5,"react":160}],162:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var CompanyModel = require('../models/CompanyModel.js');
+
+module.exports = React.createClass({
+    displayName: 'exports',
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            { className: 'company-box-container' },
+            React.createElement(
+                'div',
+                { className: 'company-picture' },
+                React.createElement(
+                    'div',
+                    null,
+                    'Company Information'
+                )
+            ),
+            React.createElement(
+                'div',
+                null,
+                React.createElement('img', { className: 'feature-pic', src: this.props.model.get('companyPicture') })
+            ),
+            React.createElement(
+                'div',
+                null,
+                React.createElement('img', { className: 'logo-pic', src: this.props.model.get('companyLogo') })
+            )
+        );
+    }
+});
+
+},{"../models/CompanyModel.js":168,"react":160}],163:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -35842,7 +35893,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],163:[function(require,module,exports){
+},{"react":160}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -35943,7 +35994,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/JobDetailsModel.js":167,"moment":5,"react":160}],164:[function(require,module,exports){
+},{"../models/JobDetailsModel.js":169,"moment":5,"react":160}],165:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -36015,7 +36066,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],165:[function(require,module,exports){
+},{"react":160}],166:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -36089,7 +36140,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],166:[function(require,module,exports){
+},{"react":160}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -36126,7 +36177,26 @@ React.render(React.createElement(
     React.createElement(AddJobPageComponent, null)
 ), mainElement);
 
-},{"./components/AddJobPageComponent.js":161,"backbone":1,"react":160}],167:[function(require,module,exports){
+},{"./components/AddJobPageComponent.js":161,"backbone":1,"react":160}],168:[function(require,module,exports){
+'use strict';
+
+var Backbone = require('backbone');
+
+module.exports = Backbone.Model.extend({
+    defaults: {
+        id: null,
+        companyName: '',
+        companyLocation: '',
+        contactPerson: '',
+        contactEmail: '',
+        companyLogo: '',
+        companyPicture: '',
+        numberOfEmployess: null
+    }
+    // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-company'
+});
+
+},{"backbone":1}],169:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -36147,7 +36217,7 @@ module.exports = Backbone.Model.extend({
     // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-job_details'
 });
 
-},{"backbone":1}]},{},[166])
+},{"backbone":1}]},{},[167])
 
 
 //# sourceMappingURL=bundle.js.map
