@@ -35727,81 +35727,205 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":33}],161:[function(require,module,exports){
 'use strict';
+var Backbone = require('backbone');
+var JobModel = require('../models/JobModel');
+
+module.exports = Backbone.Collection.extend({
+    model: JobModel
+    // url: 'https://jmingus-server.herokuapp.com/collections/mike_mathew_freshjob_job_listing'
+});
+
+},{"../models/JobModel":176,"backbone":1}],162:[function(require,module,exports){
+'use strict';
 
 var React = require('react');
 var moment = require('moment');
 
-var NavigationComponent = require('./NavigationComponent.js');
-var JobFormComponent = require('./JobFormComponent.js');
-var JobTipsComponent = require('./JobTipsComponent.js');
-var JobRowComponent = require('./JobRowComponent.js');
-var CompanyBoxComponent = require('./CompanyBoxComponent.js');
+var JobFormComponent = require('./sub-components/JobFormComponent.js');
+var JobTipsComponent = require('./sub-components/JobTipsComponent.js');
 
-var JobDetailsModel = require('../models/JobDetailsModel.js');
-var CompanyModel = require('../models/CompanyModel.js');
+var JobModel = require('../models/JobModel.js');
 
 var currentDate = moment();
 
 module.exports = React.createClass({
     displayName: 'exports',
 
-    jobDetailsModel1: new JobDetailsModel({
-        id: 1,
-        jobTitle: 'Professional Code Samurai',
-        companyName: 'Code Warrior Poets',
-        dateCreated: currentDate,
-        shortDescription: 'Do you battle code and philosophize about your role in the world? Do you write...',
-        jobLocation: 'Dallas, TX',
-        keywords: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'React']
-    }),
-    jobDetailsModel2: new JobDetailsModel({
-        id: 2,
-        jobTitle: 'Remote Engineer Hipster',
-        companyName: 'Vintage Glass House',
-        dateCreated: currentDate,
-        shortDescription: 'Looking for a node.js champion who loves long bike rides and Warby Parker glasses...',
-        jobLocation: 'Austin, TX',
-        keywords: ['HTML/CSS', 'node.js', 'JavaScript', 'jQuery', 'Backbone']
-    }),
-    companyModel1: new CompanyModel({
-        id: 1,
-        companyName: 'MaxPlay',
-        companyLocation: 'Austin, TX',
-        companyPicture: '../../images/featured.jpg',
-        companyLogo: '../../images/featured-logo.jpg'
-    }),
     render: function render() {
         return React.createElement(
             'section',
             null,
-            React.createElement(NavigationComponent, null),
             React.createElement(
                 'div',
                 { className: 'responsive-box' },
                 React.createElement(JobFormComponent, null),
                 React.createElement(JobTipsComponent, null)
-            ),
-            React.createElement(
-                'div',
-                null,
-                React.createElement(JobRowComponent, { model: this.jobDetailsModel1 }),
-                React.createElement(JobRowComponent, { model: this.jobDetailsModel2 })
-            ),
-            React.createElement(
-                'div',
-                null,
-                React.createElement(CompanyBoxComponent, { model: this.companyModel1 })
             )
         );
     }
 });
 
-},{"../models/CompanyModel.js":168,"../models/JobDetailsModel.js":169,"./CompanyBoxComponent.js":162,"./JobFormComponent.js":163,"./JobRowComponent.js":164,"./JobTipsComponent.js":165,"./NavigationComponent.js":166,"moment":5,"react":160}],162:[function(require,module,exports){
+/*  companyModel1: new CompanyModel({
+        id: 1,
+        companyName: 'MaxPlay',
+        companyLocation: 'Austin, TX',
+        companyPicture: '../../images/featured.jpg',
+        companyLogo: '../../images/featured-logo.jpg'
+    })
+*/
+
+},{"../models/JobModel.js":176,"./sub-components/JobFormComponent.js":170,"./sub-components/JobTipsComponent.js":172,"moment":5,"react":160}],163:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var Backbone = require('backbone');
+
+var NavigationComponent = require('./sub-components/NavigationComponent.js');
+var JobListPageComponent = require('./JobListPageComponent.js');
+var AddJobPageComponent = require('./AddJobPageComponent.js');
+var JobDetailsPageComponent = require('./JobDetailsPageComponent.js');
+
+var JobCollection = require('../collections/JobCollection');
+
+module.exports = React.createClass({
+    displayName: 'exports',
+
+    getInitialState: function getInitialState() {
+        return {
+            pageName: 'list',
+            id: null
+        };
+    },
+    componentWillMount: function componentWillMount() {
+        var self = this;
+        this.jobs = new JobCollection();
+        // this.jobs.fetch();
+
+        var Router = Backbone.Router.extend({
+            routes: {
+                '': 'list',
+                'list': 'list',
+                'add': 'add',
+                'details/:id': 'details'
+            },
+            list: function list() {
+                self.setState({
+                    pageName: 'list'
+                });
+            },
+            add: function add() {
+                self.setState({
+                    pageName: 'add'
+                });
+            },
+            details: function details() {
+                self.setState({
+                    pageName: 'details'
+                });
+            }
+        });
+        var r = new Router();
+        Backbone.history.start();
+    },
+    render: function render() {
+        console.log('render', this.state);
+        var pageComponent = null;
+        if (this.state.pageName === 'list') {
+            pageComponent = React.createElement(JobListPageComponent, { jobs: this.jobs });
+        } else if (this.state.pageName = 'details') {
+            pageComponent = React.createElement(JobDetailsPageComponent, null);
+        } else if (this.state.pageName = 'add') {
+            pageComponent = React.createElement(AddJobPageComponent, null);
+        }
+
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(NavigationComponent, null),
+            React.createElement(
+                'div',
+                null,
+                pageComponent
+            )
+        );
+    }
+});
+
+},{"../collections/JobCollection":161,"./AddJobPageComponent.js":162,"./JobDetailsPageComponent.js":164,"./JobListPageComponent.js":165,"./sub-components/NavigationComponent.js":173,"backbone":1,"react":160}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 
-var CompanyModel = require('../models/CompanyModel.js');
+var JobDetailsComponent = require('./sub-components/JobDetailsComponent.js');
+var CompanyBoxComponent = require('./sub-components/CompanyBoxComponent.js');
+
+/*   <CompanyBoxComponent /> */
+
+module.exports = React.createClass({
+    displayName: 'exports',
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(JobDetailsComponent, null)
+        );
+    }
+});
+
+},{"./sub-components/CompanyBoxComponent.js":166,"./sub-components/JobDetailsComponent.js":169,"react":160}],165:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var FilterBoxComponent = require('./sub-components/FilterBoxComponent.js');
+var JobRowComponent = require('./sub-components/JobRowComponent.js');
+var InformationBoxComponent = require('./sub-components/InformationBoxComponent.js');
+var CompanyBoxComponent = require('./sub-components/CompanyBoxComponent.js');
+
+module.exports = React.createClass({
+    displayName: 'exports',
+
+    componentWillMount: function componentWillMount() {
+        var self = this;
+        this.props.jobs.on('sync', function () {
+            self.forceUpdate();
+        });
+    },
+    render: function render() {
+        console.log('job list page render', this.props);
+
+        var jobRows = this.props.jobs.map(function (job) {
+            return React.createElement(JobRowComponent, { job: job });
+        });
+
+        return React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'div',
+                null,
+                React.createElement(FilterBoxComponent, null),
+                jobRows
+            ),
+            React.createElement(
+                'div',
+                null,
+                React.createElement(InformationBoxComponent, null),
+                '/*  ',
+                React.createElement(CompanyBoxComponent, null),
+                ' */'
+            )
+        );
+    }
+});
+
+},{"./sub-components/CompanyBoxComponent.js":166,"./sub-components/FilterBoxComponent.js":167,"./sub-components/InformationBoxComponent.js":168,"./sub-components/JobRowComponent.js":171,"react":160}],166:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+var CompanyModel = require('../../models/CompanyModel.js');
 
 module.exports = React.createClass({
     displayName: 'exports',
@@ -35810,6 +35934,7 @@ module.exports = React.createClass({
         return React.createElement(
             'div',
             { className: 'company-box-container' },
+            '/* ',
             React.createElement(
                 'div',
                 { className: 'company-box-title' },
@@ -35842,12 +35967,76 @@ module.exports = React.createClass({
                     { className: 'company-box-location' },
                     this.props.model.get('companyLocation')
                 )
+            ),
+            '*/'
+        );
+    }
+});
+
+},{"../../models/CompanyModel.js":175,"react":160}],167:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
+
+module.exports = React.createClass({
+    displayName: "exports",
+
+    render: function render() {
+        return React.createElement(
+            "div",
+            { className: "filter-box" },
+            React.createElement(
+                "label",
+                { className: "filter-search-label", "for": "keyword-input" },
+                "Keywords"
+            ),
+            React.createElement("input", { className: "filter-search-input-keywords", type: "text", name: "keyword-input" }),
+            React.createElement(
+                "label",
+                { className: "filter-search-label", "for": "keyword-input" },
+                "Location"
+            ),
+            React.createElement("input", { className: "filter-search-input-location", type: "text", name: "keyword-input" }),
+            React.createElement(
+                "button",
+                null,
+                "Search"
             )
         );
     }
 });
 
-},{"../models/CompanyModel.js":168,"react":160}],163:[function(require,module,exports){
+},{"react":160}],168:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+    displayName: 'exports',
+
+    render: function render() {
+        return React.createElement('div', null);
+    }
+});
+
+},{"react":160}],169:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+    displayName: 'exports',
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            null,
+            'This is showing up!!'
+        );
+    }
+});
+
+},{"react":160}],170:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -35907,18 +36096,21 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],164:[function(require,module,exports){
+},{"react":160}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var moment = require('moment');
 
-var JobDetailsModel = require('../models/JobDetailsModel.js');
+var JobDetailsModel = require('../../models/JobModel.js');
 
 module.exports = React.createClass({
     displayName: 'exports',
 
     render: function render() {
+
+        console.log(this.props.job);
+
         var keywordsArray = this.props.model.get('keywords');
         var newArray = [];
 
@@ -36008,7 +36200,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/JobDetailsModel.js":169,"moment":5,"react":160}],165:[function(require,module,exports){
+},{"../../models/JobModel.js":176,"moment":5,"react":160}],172:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -36080,7 +36272,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],166:[function(require,module,exports){
+},{"react":160}],173:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -36109,7 +36301,7 @@ module.exports = React.createClass({
                     { className: "nav-anchor" },
                     React.createElement(
                         "a",
-                        { href: "#" },
+                        { href: "#list" },
                         "Jobs"
                     )
                 ),
@@ -36145,7 +36337,7 @@ module.exports = React.createClass({
                     { className: "nav-anchor" },
                     React.createElement(
                         "a",
-                        { href: "#" },
+                        { href: "#add" },
                         "For Employers"
                     )
                 )
@@ -36154,44 +36346,22 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],167:[function(require,module,exports){
+},{"react":160}],174:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var Backbone = require('backbone');
-var AddJobPageComponent = require('./components/AddJobPageComponent.js');
+var AppComponent = require('./components/AppComponent.js');
 
 var mainElement = document.getElementById('main-content');
-
-// var Router = Backbone.Router.extend({
-//         routes: {
-//             '': 'showRestaurants',
-//             'restaurants': 'showRestaurants',
-//             'login': 'goToLogin',
-//             'parking': 'restaurantDetails'
-//         },
-//         showRestaurants: function() {
-//             console.log('restraurants link clicked');
-//             $('section').hide();
-//             $restaurants.show();
-//         },
-//         goToLogin: function() {
-//             console.log('login link clicked');
-//             $('section').hide();
-//             $login.show();
-//         },
-//     });
-
-//     var r = new Router();
-//     Backbone.history.start();
 
 React.render(React.createElement(
     'div',
     null,
-    React.createElement(AddJobPageComponent, null)
+    React.createElement(AppComponent, null)
 ), mainElement);
 
-},{"./components/AddJobPageComponent.js":161,"backbone":1,"react":160}],168:[function(require,module,exports){
+},{"./components/AppComponent.js":163,"backbone":1,"react":160}],175:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -36207,10 +36377,10 @@ module.exports = Backbone.Model.extend({
         companyPicture: '',
         numberOfEmployess: null
     }
-    // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-company'
+    // urlRoot: 'https://jmingus-server.herokuapp.com/collections/mike_mathew_freshjob_company'
 });
 
-},{"backbone":1}],169:[function(require,module,exports){
+},{"backbone":1}],176:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backbone');
@@ -36228,10 +36398,10 @@ module.exports = Backbone.Model.extend({
         qualifications: '',
         keywords: []
     }
-    // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-job_details'
+    // urlRoot: 'https://jmingus-server.herokuapp.com/collections/mike_mathew_freshjob_job_listing'
 });
 
-},{"backbone":1}]},{},[167])
+},{"backbone":1}]},{},[174])
 
 
 //# sourceMappingURL=bundle.js.map

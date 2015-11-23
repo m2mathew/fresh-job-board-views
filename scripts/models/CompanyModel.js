@@ -11,5 +11,5 @@ module.exports = Backbone.Model.extend({
         companyPicture: '',
         numberOfEmployess: null
     }
-    // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-company'
+    // urlRoot: 'https://jmingus-server.herokuapp.com/collections/mike_mathew_freshjob_company'
 });

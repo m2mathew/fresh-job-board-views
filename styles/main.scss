@@ -1,5 +1,9 @@
 @import 'normalize.scss';
 
+$nav-company-font: font-family: 'Signika', sans-serif;
+$nav-link-font: font-family: 'Paytone One', sans-serif;
+
+
 body {
     font-family: "Times New Roman", serif;
     font-size: 1.5em;
@@ -223,7 +227,6 @@ textarea {
         .company-box-location {
             font-size: 1em;
         }
-
     }
 }
 
@@ -256,14 +259,12 @@ a {
         display: inline-block;
         width: 30%;
     }
-
 }
 
 @media screen and (min-width: 65em) {
 
     .responsive-box {
         text-align: center;
-        // padding: 1em;
     }
 
     .jobform-background {
@@ -272,7 +273,6 @@ a {
         padding: 1.25em;
         padding-right: 1.75em;
         width: 25em;
-
     }
 
     .jobtips-background {
@@ -281,5 +281,4 @@ a {
         display: inline-block;
         width: 15em;
     }
-
 }

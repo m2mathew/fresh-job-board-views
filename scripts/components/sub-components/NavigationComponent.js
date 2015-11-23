@@ -8,14 +8,13 @@ module.exports = React.createClass({
                     <a href="#" className="home-link">Fresh Jobs</a>
                 </div>
                 <div className="link-container">
-                    <div className="nav-anchor"><a href="#">Jobs</a></div>
+                    <div className="nav-anchor"><a href="#list">Jobs</a></div>
                     <div className="nav-anchor"><a href="#">Companies</a></div>
                     <div className="nav-anchor"><a href="#">Cities</a></div>
                     <div className="nav-anchor"><a href="#">Why Fresh?</a></div>
-                    <div className="nav-anchor"><a href="#">For Employers</a></div>
+                    <div className="nav-anchor"><a href="#add">For Employers</a></div>
                 </div>
             </nav>
         );
     }
 });
-

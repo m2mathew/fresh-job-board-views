@@ -13,5 +13,5 @@ module.exports = Backbone.Model.extend({
         qualifications: '',
         keywords: []
     }
-    // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-job_details'
+    // urlRoot: 'https://jmingus-server.herokuapp.com/collections/mike_mathew_freshjob_job_listing'
 });

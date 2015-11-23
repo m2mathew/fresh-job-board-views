@@ -5,6 +5,6 @@ module.exports = Backbone.Model.extend({
         id: null,
         keywordName: ''
     }
-    // urlRoot: 'http://tiyfe.herokuapp.com/collections/mike_mathew_fresh_jobs-keyword'
+    // urlRoot: 'https://jmingus-server.herokuapp.com/collections/mike_mathew_freshjob_keywords'
 });
 

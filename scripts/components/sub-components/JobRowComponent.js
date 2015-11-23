@@ -1,10 +1,14 @@
 var React = require('react');
 var moment = require('moment');
 
-var JobDetailsModel = require('../models/JobDetailsModel.js');
+var JobDetailsModel = require('../../models/JobModel.js');
 
 module.exports = React.createClass({
     render: function() {
+
+        console.log(this.props.job);
+
+
         var keywordsArray = this.props.model.get('keywords');
         var newArray = [];
 
